@@ -4,15 +4,16 @@ import { galleryItems } from './gallery-items.js';
 console.log(galleryItems);
 
 const galleryRef = document.querySelector('.gallery');
+const addGalleryHtml = createGalleryHtml(galleryItems);
 
 function createGalleryHtml(items) {
   return items
     .map(
       item =>
-        `<div class="gallery_item">
-        <a class="gallery_link" href="${item.original}">
+        `<div class="gallery__item">
+        <a class="gallery__link" href="${item.original}">
           <img
-            class="gallary_image"
+            class="gallery__image"
             src="${item.preview}"
             data-source="${item.original}"
             alt="${item.discription}"
@@ -22,7 +23,6 @@ function createGalleryHtml(items) {
     )
     .join('');
 }
-const addGalleryHtml = createGalleryHtml(galleryItems);
 
 galleryRef.innerHTML = addGalleryHtml;
 galleryRef.addEventListener('click', onImageclick);
