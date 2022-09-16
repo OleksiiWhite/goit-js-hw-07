@@ -33,15 +33,14 @@ function onImageclick(e) {
     return;
   }
 
-  const instance = basicLightbox.create(
-    `<img src = "${e.target.dataset.source}" width = "800" height = "600">`
-  );
-  instance.show();
+  const galleryOn = new SimpleLightbox('.gallery a');
+  galleryOn.on('show.simplelightbox', function () {
+    `<img src = "${e.target.dataset.source}" width = "800" height = "600">`;
+  });
 
-  galleryRef.addEventListener('keydown', e => {
-    if (e.code === 'Escape') {
-      instance.close();
-    }
+  const altImgLightbox = new SimpleLightbox('.gallery a', {
+    captionsData: 'alt',
+    captionDelay: 250,
   });
 }
 
