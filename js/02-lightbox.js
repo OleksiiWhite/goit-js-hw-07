@@ -15,7 +15,7 @@ function createGalleryHtml(items) {
           <img
             class="gallery__image"
             src="${item.preview}"
-            alt="${item.discription}"
+            alt="${item.description}"
           />
         </a>
       </li>`
@@ -24,26 +24,13 @@ function createGalleryHtml(items) {
 }
 
 galleryRef.innerHTML = addGalleryHtml;
-galleryRef.addEventListener('click', onImageclick);
 
-function onImageclick(e) {
-  blockedStandartAction(e);
+const galleryOn = new SimpleLightbox('.gallery a', {
+  captionsData: `alt`,
+  captionDelay: 250,
+  overlayOpacity: 0.3,
+});
 
-  if (e.target.nodeName !== 'IMG') {
-    return;
-  }
-
-  const galleryOn = new SimpleLightbox('.gallery a');
-  galleryOn.on('show.simplelightbox', function () {
-    `<img src = "${e.target.dataset.source}" width = "800" height = "600">`;
-  });
-
-  const altImgLightbox = new SimpleLightbox('.gallery a', {
-    captionsData: 'alt',
-    captionDelay: 250,
-  });
-}
-
-function blockedStandartAction(e) {
-  e.preventDefault();
-}
+galleryOn.on('show.simplelightbox', function (e) {
+  `<img src = "${e.target.dataset.source}" width = "800" height = "600">`;
+});

@@ -16,7 +16,7 @@ function createGalleryHtml(items) {
             class="gallery__image"
             src="${item.preview}"
             data-source="${item.original}"
-            alt="${item.discription}"
+            alt="${item.description}"
           />
         </a>
       </div>`
