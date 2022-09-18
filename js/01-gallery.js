@@ -38,12 +38,6 @@ function onImageclick(e) {
     `<img src = "${e.target.dataset.source}" width = "800" height = "600">`
   );
   instance.show();
-  // instance.onclose();
-
-  // const instance = basicLightbox.create(html, {
-  //   onShow: instance => console.log('onShow', instance),
-  //   onClose: instance => console.log('onClose', instance),
-  // });
 
   galleryRef.addEventListener('keydown', e => {
     if (e.code === 'Escape') {
@@ -51,13 +45,7 @@ function onImageclick(e) {
     }
   });
 }
-// instance.close();
+
 function blockedStandartAction(e) {
   e.preventDefault();
 }
-
-// instance.show(instance => console.log('finished show()', instance));
-
-// setTimeout(() => {
-//   instance.close(instance => console.log('finished close()', instance));
-// }, 3000);
